@@ -87,7 +87,7 @@
                   class="form-control"
                   aria-describedby="name"
                 />
-                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+               
               </div>
               <div class="form-group">
                 <label for="description">description</label>
@@ -168,7 +168,8 @@
        const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzVhM2NlYWY0ODAwMTVjOTE4NjMiLCJpYXQiOjE2MjUwNjAxODksImV4cCI6MTYyNjI2OTc4OX0.6bhF6ybAA7uiovBusbBNZP05BC9fQy0quRu0B1I4CQA"                "Content-Type": "application/json"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzVhM2NlYWY0ODAwMTVjOTE4NjMiLCJpYXQiOjE2MjUwNjAxODksImV4cCI6MTYyNjI2OTc4OX0.6bhF6ybAA7uiovBusbBNZP05BC9fQy0quRu0B1I4CQA"   ,            
+                 "Content-Type": "application/json"
                },
             body: JSON.stringify(myEvent)
         })
@@ -178,7 +179,7 @@
           if (response.ok) {
          
             const product = await response.json();
-            alert("Appointment created sccessfully with an id of " + product._id);
+            alert(" you product added successfully" + product._id);
           } else {
             
             console.log('')
