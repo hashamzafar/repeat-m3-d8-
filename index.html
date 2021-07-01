@@ -112,6 +112,8 @@
 							);
 
 							addProduct.innerHTML += `<img src="${products.imageUrl}" alt="" width= '80px'>
+                            <button class="btn btn-danger">
+                                <a href="/backOffice.html?id=${products._id}">edit product</a></button>
                                     <span>${products.brand}</span>
                                     <span class="badge badge-dark">${products.price}€</span>
                                     </span><span>${products.description}</span>`;

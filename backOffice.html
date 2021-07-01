@@ -128,9 +128,25 @@
                   aria-describedby="ticket price"
                 />
              
-            <button type='button' onclick='handleSubmit()' class = 'btn btn-danger mt-3'>submit</button>
+            <button type='button' onclick='handleSubmit()' class = 'btn btn-success mt-3'>submit</button>
+            <button type='button'  class = 'btn btn-danger mt-3'><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-trash"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                />
+              </svg></button>
               
-             
+                
             </form>
           </div>
         </div>
@@ -140,7 +156,51 @@
 
 
     <script>
-         
+         const eventId = new URLSearchParams(window.location.search).get("id")
+
+        const endpoint = eventId ? "https://striveschool-api.herokuapp.com/api/product/" + eventId : "https://striveschool-api.herokuapp.com/api/product/"
+                const method = eventId ? "PUT" : "POST"
+             
+
+
+
+                window.onload = async () =>{
+                    
+                    
+                    if (eventId){
+                        const response = await fetch(endpoint, {
+                            method,
+                            headers: {
+                                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzVhM2NlYWY0ODAwMTVjOTE4NjMiLCJpYXQiOjE2MjUwNjAxODksImV4cCI6MTYyNjI2OTc4OX0.6bhF6ybAA7uiovBusbBNZP05BC9fQy0quRu0B1I4CQA"   ,            
+                                "Content-Type": "application/json"
+               },
+                        })
+
+                        
+                        
+                        const productDetails = await response.json()
+                        method,
+            
+                        console.log(productDetails)
+                    //    document.getElementById('name').value = productDetails.name
+                    //    document.getElementById('description').value = productDetails.description
+                    //    document.getElementById('price').value = productDetails.price
+                    //    document.getElementById('brand').value = productDetails.brand
+                    //    document.getElementById('imageUrl').value = productDetails.imageUrl
+
+
+                       
+                    }
+                }
+
+
+
+
+
+
+
+
+
         const handleSubmit = async (product) => {
             const url = "https://striveschool-api.herokuapp.com/api/product/";
             product.preventDefault();
@@ -166,7 +226,7 @@
     console.log(JSON.stringify(myEvent))
         try {
        const response = await fetch(url, {
-            method: "POST",
+            method,
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzVhM2NlYWY0ODAwMTVjOTE4NjMiLCJpYXQiOjE2MjUwNjAxODksImV4cCI6MTYyNjI2OTc4OX0.6bhF6ybAA7uiovBusbBNZP05BC9fQy0quRu0B1I4CQA"   ,            
                  "Content-Type": "application/json"
