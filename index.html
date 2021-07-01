@@ -111,11 +111,11 @@
 								"justify-content-between"
 							);
 
-							listItem.innerHTML = `<img src="${products.imageUrl}" alt="" width= '80px'>
-              <span>${products.brand}</span>
-              <span class="badge badge-dark">${products.price}€</span>
-            </span><span>${products.description}</span>`;
-							addProduct.appendChild(listItem);
+							addProduct.innerHTML += `<img src="${products.imageUrl}" alt="" width= '80px'>
+                                    <span>${products.brand}</span>
+                                    <span class="badge badge-dark">${products.price}€</span>
+                                    </span><span>${products.description}</span>`;
+                                                    // addProduct.appendChild(listItem);
 						});
 					} else {
 						addProduct.innerHTML = `<div class="alert alert-info" role="alert">

@@ -143,7 +143,7 @@
          
         const handleSubmit = async (product) => {
             const url = "https://striveschool-api.herokuapp.com/api/product/";
-            // product.preventDefault();
+            product.preventDefault();
        
             
 
@@ -180,12 +180,7 @@
          
             const product = await response.json();
             alert(" you product added successfully" + product._id);
-          } else {
-            
-            console.log('')
-         
-            
-          }
+          } 
 
      
         
